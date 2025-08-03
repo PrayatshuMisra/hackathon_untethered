@@ -1,0 +1,88 @@
+name: untethered_ai
+description: An offline, privacy-first AI smartphone assistant with context-aware memory, translation, and personal document search.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI & Navigation
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  lottie: ^2.7.0
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Local Storage & Database
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  shared_preferences: ^2.2.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  
+  # Camera & Media
+  camera: ^0.10.5+5
+  image_picker: ^1.0.4
+  permission_handler: ^11.1.0
+  
+  # Audio & Speech
+  speech_to_text: ^6.6.0
+  flutter_tts: ^3.8.5
+  
+  # File Handling
+  file_picker: ^6.1.1
+  path_provider: ^2.1.1
+  
+  # Networking & P2P
+  connectivity_plus: ^5.0.2
+  nearby_connections: ^3.3.1
+  qr_flutter: ^4.1.0
+  
+  # AI & ML (Offline)
+  tflite_flutter: ^0.10.4
+  image: ^4.1.3
+  
+  # Utilities
+  intl: ^0.20.2
+  uuid: ^4.2.1
+  crypto: ^3.0.3
+  
+  # Charts & Visualization
+  fl_chart: ^0.65.0
+  
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.7
+  build_web_compilers: ^4.2.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/animations/
+    - assets/models/
+  
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Inter-Bold.ttf
+  #         weight: 700 

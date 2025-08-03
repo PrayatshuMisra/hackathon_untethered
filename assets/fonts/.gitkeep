@@ -1,0 +1,5 @@
+# This file ensures the fonts directory is tracked by git
+# Place Inter font files here:
+# - Inter-Regular.ttf
+# - Inter-Medium.ttf
+# - Inter-Bold.ttf 

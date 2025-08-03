@@ -1,0 +1,5 @@
+# This file ensures the models directory is tracked by git
+# Place TensorFlow Lite models here:
+# - object_detection.tflite
+# - translation_en_es.tflite
+# - speech_recognition.tflite 

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untethered AI - App Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #FAFBFF 0%, #667EEA 100%);
+            min-height: 100vh;
+            color: #1A1D29;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #6B7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .app-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .screen {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .screen-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .screen-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .screen-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A1D29;
+        }
+
+        .screen-content {
+            line-height: 1.6;
+            color: #6B7280;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #00D4AA;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .mockup {
+            background: #1A1D29;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .mockup::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #6B7280;
+            border-radius: 2px;
+        }
+
+        .mockup-content {
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .tech-stack {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-stack h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #F093FB, #F5576C);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .privacy-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00D4AA, #00F2FE);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Untethered AI</h1>
+            <p>Privacy-First Smartphone Assistant - Complete Offline AI Experience</p>
+            <div class="privacy-badge">🔒 100% Offline & Private</div>
+        </div>
+
+        <div class="app-preview">
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-icon">🏠</div>
+                    <div class="screen-title">Home Dashboard</div>
+                </div>
+                <div class="screen-content">
+                    <p>Your personal AI command center with quick access to all features.</p>
+                    <ul class="feature-list">
+                        <li>Mood indicator based on daily memories</li>
+                        <li>Quick action buttons for common tasks</li>
+                        <li>Recent activity summary</li>
+                        <li>Smart notifications</li>
+                    </ul>
+                    <div class="mockup">
+                        <div class="mockup-content">
+                            <h3>Welcome back!</h3>
+                            <p>Your AI assistant is ready</p>
+                            <div style="margin: 20px 0;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    📝 Record Memory
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    🌍 Translate
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    📷 Camera AI
+                                </div>
+                            </div>
+                            <div class="nav-bar">
+                                <div class="nav-item active">🏠</div>
+                                <div class="nav-item">📖</div>
+                                <div class="nav-item">🌍</div>
+                                <div class="nav-item">📡</div>
+                                <div class="nav-item">👤</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-icon">📖</div>
+                    <div class="screen-title">Memory Journal</div>
+                </div>
+                <div class="screen-content">
+                    <p>AI-powered daily memory tracking with context-aware organization.</p>
+                    <ul class="feature-list">
+                        <li>Timeline view of daily memories</li>
+                        <li>Audio transcription & object detection</li>
+                        <li>Smart categorization (Work/Personal)</li>
+                        <li>Search & filter capabilities</li>
+                        <li>Mood analysis & patterns</li>
+                    </ul>
+                    <div class="mockup">
+                        <div class="mockup-content">
+                            <h3>Today's Memories</h3>
+                            <div style="margin: 20px 0;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; text-align: left;">
+                                    <div style="font-size: 0.9rem;">☕ Coffee meeting with team</div>
+                                    <div style="font-size: 0.7rem; opacity: 0.8;">2 hours ago</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; text-align: left;">
+                                    <div style="font-size: 0.9rem;">📱 Project discussion notes</div>
+                                    <div style="font-size: 0.7rem; opacity: 0.8;">4 hours ago</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; text-align: left;">
+                                    <div style="font-size: 0.9rem;">🌅 Morning walk in park</div>
+                                    <div style="font-size: 0.7rem; opacity: 0.8;">6 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-icon">🌍</div>
+                    <div class="screen-title">Translation</div>
+                </div>
+                <div class="screen-content">
+                    <p>Offline multilingual translation with camera and conversation support.</p>
+                    <ul class="feature-list">
+                        <li>Real-time camera translation</li>
+                        <li>Conversation mode with context</li>
+                        <li>10+ languages supported</li>
+                        <li>Offline language models</li>
+                        <li>Voice input & output</li>
+                    </ul>
+                    <div class="mockup">
+                        <div class="mockup-content">
+                            <h3>Live Translation</h3>
+                            <div style="margin: 20px 0;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <div style="font-size: 0.8rem;">🇪🇸 Hola, ¿cómo estás?</div>
+                                    <div style="font-size: 0.9rem; margin-top: 5px;">🇺🇸 Hello, how are you?</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
+                                    <div style="font-size: 0.8rem;">🇺🇸 I'm doing well, thank you!</div>
+                                    <div style="font-size: 0.9rem; margin-top: 5px;">🇪🇸 ¡Estoy bien, gracias!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-icon">📡</div>
+                    <div class="screen-title">Mesh Network</div>
+                </div>
+                <div class="screen-content">
+                    <p>Peer-to-peer sharing and collaboration without internet.</p>
+                    <ul class="feature-list">
+                        <li>Device discovery & pairing</li>
+                        <li>QR code connection</li>
+                        <li>File & memory sharing</li>
+                        <li>Offline collaboration</li>
+                        <li>Secure local network</li>
+                    </ul>
+                    <div class="mockup">
+                        <div class="mockup-content">
+                            <h3>Nearby Devices</h3>
+                            <div style="margin: 20px 0;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; display: flex; align-items: center;">
+                                    <div style="margin-right: 10px;">📱</div>
+                                    <div style="text-align: left;">
+                                        <div style="font-size: 0.9rem;">Sarah's iPhone</div>
+                                        <div style="font-size: 0.7rem; opacity: 0.8;">2 meters away</div>
+                                    </div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; display: flex; align-items: center;">
+                                    <div style="margin-right: 10px;">💻</div>
+                                    <div style="text-align: left;">
+                                        <div style="font-size: 0.9rem;">Office MacBook</div>
+                                        <div style="font-size: 0.7rem; opacity: 0.8;">5 meters away</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-icon">👤</div>
+                    <div class="screen-title">Profile & Settings</div>
+                </div>
+                <div class="screen-content">
+                    <p>Complete control over your data and app preferences.</p>
+                    <ul class="feature-list">
+                        <li>Privacy controls & forget mode</li>
+                        <li>Storage usage monitoring</li>
+                        <li>Data export/import</li>
+                        <li>App preferences</li>
+                        <li>User profile management</li>
+                    </ul>
+                    <div class="mockup">
+                        <div class="mockup-content">
+                            <h3>Privacy Settings</h3>
+                            <div style="margin: 20px 0;">
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Auto-delete memories</span>
+                                    <span style="background: #00D4AA; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem;">ON</span>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Location tracking</span>
+                                    <span style="background: #FF6B6B; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem;">OFF</span>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; margin: 8px 0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Storage used</span>
+                                    <span style="font-size: 0.8rem;">2.3 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2>Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">Flutter 3.0+</div>
+                <div class="tech-item">Dart</div>
+                <div class="tech-item">TensorFlow Lite</div>
+                <div class="tech-item">Hive Database</div>
+                <div class="tech-item">Camera Plugin</div>
+                <div class="tech-item">Speech-to-Text</div>
+                <div class="tech-item">Material Design 3</div>
+                <div class="tech-item">Provider State Management</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.9); border-radius: 20px; backdrop-filter: blur(20px);">
+            <h2 style="margin-bottom: 20px; color: #1A1D29;">Key Features</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+                <div>
+                    <h3 style="color: #667EEA; margin-bottom: 10px;">🔒 Privacy-First</h3>
+                    <p>100% offline operation with no cloud dependencies. Your data never leaves your device.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667EEA; margin-bottom: 10px;">🧠 AI-Powered</h3>
+                    <p>Context-aware memory, object detection, translation, and smart summarization using on-device AI.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667EEA; margin-bottom: 10px;">🌍 Multilingual</h3>
+                    <p>Offline translation for 10+ languages with real-time camera translation capabilities.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667EEA; margin-bottom: 10px;">📡 P2P Sharing</h3>
+                    <p>Mesh network for device-to-device communication and file sharing without internet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
