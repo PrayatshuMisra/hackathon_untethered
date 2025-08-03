@@ -236,3 +236,5 @@ C:\flutter\bin\flutter.bat run -d web-server --web-port 8080
 
 $env:PATH = "C:\Program Files\Git\bin;C:\Program Files\Git\cmd;C:\flutter\bin;C:\Windows\System32;C:\Windows;" + $env:PATH; $env:FLUTTER_ROOT = "C:\flutter"; & "C:\flutter\bin\flutter.bat" build web --release
 python serve_app.py
+
+$env:PATH = "C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\bin;C:\flutter\bin"; & "C:\flutter\bin\flutter.bat" build apk --release

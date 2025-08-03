@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.untethered_ai"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // ndkVersion = flutter.ndkVersion  // Commented out to avoid NDK requirement
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
